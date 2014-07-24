@@ -21,9 +21,6 @@ apply plugin: 'java'
 apply plugin: 'war'
 apply plugin: 'appengine'
 
-sourceCompatibility = 1.7
-targetCompatibility = 1.7
-
 dependencies {
     appengineSdk 'com.google.appengine:appengine-java-sdk:1.9.4'
     compile 'javax.servlet:servlet-api:2.5'

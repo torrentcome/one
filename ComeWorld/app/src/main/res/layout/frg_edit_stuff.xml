@@ -171,6 +171,8 @@
         android:padding="10dp"
         android:text=">"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#FFF" />\
+        android:textColor="#FFF" />
+
+    \
 
 </RelativeLayout>
