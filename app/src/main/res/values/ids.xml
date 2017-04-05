@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+  <!--first screen-->
+  <item name="text" type="id"/>
+  <item name="image" type="id"/>
+  <item name="edit_name" type="id"/>
+  <item name="edit_pwd" type="id"/>
+  <item name="button" type="id"/>
+
+  <!--second screen-->
+  <item name="price_last" type="id"/>
+  <item name="price_low" type="id"/>
+  <item name="price_high" type="id"/>
+  <item name="cost" type="id"/>
+  <item name="remaining" type="id"/>
+
+  <!--market list-->
+  <item name="market_list" type="id"/>
+
+  <!--menu-->
+  <item name="bt_goto_market" type="id"/>
+  <item name="bt_goto_block" type="id"/>
+
+  <!--block-->
+  <item name="bt_block_generate" type="id"/>
+
+</resources>
