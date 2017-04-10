@@ -6,32 +6,32 @@ package com.cto3543.exokotlin.block
 // state
 data class BlockChain(val currentBlock: Block? = null, val listBlock: ArrayList<Block>? = null)
 
-data class Block(val index: Int, val previousHash: String, val timestamp: String, val data: String, val hash: String)
+data class Block(val index: Int?, val previousHash: String?, val timestamp: String, val data: String, val hash: String)
 
-fun calculateHash(index: Int, previousHash: String, timestamp: String, data: String): String {
-    return ("" + index + previousHash + timestamp + data).hashCode().toString()
+fun calculateHash(index: Int?, previousHash: String?, timestamp: String, data: String): String {
+    return SHA1("" + index + previousHash + timestamp + data)
 }
 
 fun calculateHashFromBlock(block: Block): String {
     return calculateHash(block.index, block.previousHash, block.timestamp, block.data)
 }
 
-fun generateNextBlock(blockList: List<Block>, data: String): Block {
-    val lastBlock: Block = blockList.last()
-    val nextIndex = lastBlock.index + 1
+fun generateNextBlock(blockList: List<Block>?, data: String): Block {
+    val lastBlock: Block? = blockList?.last()
+    val nextIndex = lastBlock?.index?.plus(1)
     val nextTimeStamp = (System.currentTimeMillis() / 1000).toString()
-    val nextHash = calculateHash(nextIndex, lastBlock.hash, nextTimeStamp, data)
+    val nextHash = calculateHash(nextIndex, lastBlock?.hash, nextTimeStamp, data)
 
-    return Block(nextIndex, lastBlock.hash, nextTimeStamp, data, nextHash)
+    return Block(nextIndex, lastBlock?.hash, nextTimeStamp, data, nextHash)
 }
 
 fun generateFirstBlock(): Block {
     val s = "first block"
-    return Block(0, "0", (System.currentTimeMillis() / 1000).toString(), s, s.hashCode().toString())
+    return Block(0, "0", (System.currentTimeMillis() / 1000).toString(), s, calculateHash(0, "0", (System.currentTimeMillis() / 1000).toString(), s))
 }
 
 fun isValidNewBlock(newBlock: Block, previousBlock: Block): Boolean {
-    if (previousBlock.index + 1 != newBlock.index) {
+    if (previousBlock.index?.plus(1) != newBlock.index) {
         println("invalid index")
         return false
     } else if (previousBlock.hash != newBlock.previousHash) {
@@ -54,3 +54,4 @@ fun isValidChain(blockList: List<Block>): Boolean {
 
 fun replaceChain(blockList: List<Block>) {
 }
+

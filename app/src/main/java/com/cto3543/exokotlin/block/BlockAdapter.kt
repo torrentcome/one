@@ -4,34 +4,31 @@ import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import com.cto3543.exokotlin.R
 import com.cto3543.exokotlin.block.Block
-import org.jetbrains.anko.dip
-import org.jetbrains.anko.matchParent
-import org.jetbrains.anko.padding
-import org.jetbrains.anko.wrapContent
+import com.cto3543.exokotlin.block.component.BlockItemComponent
+import org.jetbrains.anko.AnkoContext
+import org.jetbrains.anko.find
 
 /**
  * Created by cto3543 on 30/03/2017.
  */
 class BlockAdapter(val list: List<Block>?) :
-        RecyclerView.Adapter<SummaryViewHolder>() {
+        RecyclerView.Adapter<BlockHolder>() {
 
     interface EventBlockAdapter {
         fun onClick(blockList: List<Block>? = null)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): SummaryViewHolder = SummaryViewHolder(
-            TextView(parent?.context).apply {
-                textSize = 20f
-                padding = dip(8)
-                layoutParams = ViewGroup.LayoutParams(matchParent, wrapContent)
-            }
-    )
+    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): BlockHolder? {
+        return BlockHolder(BlockItemComponent().createView(AnkoContext.Companion.create(parent!!.context, parent)))
+    }
 
-    override fun onBindViewHolder(holder: SummaryViewHolder?, position: Int) {
-        holder?.textView?.text = list?.get(position)?.data
-        holder?.textView?.setOnClickListener(object : View.OnClickListener {
+    override fun onBindViewHolder(holder: BlockHolder?, position: Int) {
+        holder?.bind(list?.get(position))
+        holder?.onclick(object : View.OnClickListener {
             override fun onClick(v: View?) {
+
             }
         })
     }
@@ -41,5 +38,25 @@ class BlockAdapter(val list: List<Block>?) :
             return list.size
         else
             return 0
+    }
+}
+
+class BlockHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    val id: TextView = itemView.find(R.id.block_item_id)
+    val previousHash: TextView = itemView.find(R.id.block_item_previous_hash)
+    val timestamp: TextView = itemView.find(R.id.block_item_timestamp)
+    val data: TextView = itemView.find(R.id.block_item_data)
+    val hash: TextView = itemView.find(R.id.block_item_hash)
+
+    fun bind(block: Block?) {
+        id.text = "id =" + block?.index.toString()
+        previousHash.text = "previousHash =" + block?.previousHash
+        timestamp.text = "timestamp =" + block?.timestamp
+        data.text = "data =" + block?.data
+        hash.text = "hash =" + block?.hash
+    }
+
+    fun onclick(handle: View.OnClickListener) {
+        itemView.setOnClickListener(handle)
     }
 }

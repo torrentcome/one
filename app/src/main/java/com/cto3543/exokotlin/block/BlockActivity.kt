@@ -24,9 +24,8 @@ class BlockActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         verticalLayout {
             lparams(width = matchParent, height = wrapContent)
-            padding = dip(30)
             textView {
-                text = "Blockchain ex"
+                text = "Blockchain generated"
                 textSize = 26f
             }
             button {
@@ -38,7 +37,7 @@ class BlockActivity : BaseActivity() {
             }
 
             recyclerView = recyclerView {
-                layoutManager = GridLayoutManager(context, 3) as RecyclerView.LayoutManager?
+                layoutManager = GridLayoutManager(context, 1) as RecyclerView.LayoutManager?
             }.lparams {
                 width = matchParent
             }
@@ -52,7 +51,12 @@ class BlockActivity : BaseActivity() {
     }
 
     fun generateBlock() {
-        listBlock?.add(generateFirstBlock())
+        val block: Block
+        if (listBlock?.size == 0)
+            block = generateFirstBlock()
+        else
+            block = generateNextBlock(listBlock, "data numero" + listBlock?.size)
+        listBlock?.add(block)
         storeBlock?.dispatch(Action.setCurrentListBlock(listBlock))
     }
 }
