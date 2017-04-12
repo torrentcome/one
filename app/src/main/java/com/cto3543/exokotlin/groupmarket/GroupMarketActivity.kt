@@ -15,7 +15,7 @@ import com.cto3543.exokotlin.action.Action
 import com.cto3543.exokotlin.market.MarketActivity
 import com.cto3543.exokotlin.groupmarket.Market
 import com.cto3543.exokotlin.utils.Rotate3dAnimation
-import com.cto3543.exokotlin.web.WebApi
+import com.cto3543.exokotlin.web.CryptoWebApi
 import org.jetbrains.anko.*
 import org.jetbrains.anko.recyclerview.v7.recyclerView
 
@@ -55,7 +55,7 @@ class GroupMarketActivity : BaseActivity(), GroupsMarketsAdapter.EventMarketAdap
         }
 
         doAsync {
-            val (markets, error) = WebApi.getMarkets()
+            val (markets, error) = CryptoWebApi.getMarkets()
             animLoad(true)
             println("groupMarkets = " + markets)
             println("error = " + error)

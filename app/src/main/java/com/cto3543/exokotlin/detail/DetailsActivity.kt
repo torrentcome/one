@@ -6,7 +6,7 @@ import com.cto3543.exokotlin.BaseActivity
 import com.cto3543.exokotlin.ExoKotlinApp
 import com.cto3543.exokotlin.R
 import com.cto3543.exokotlin.action.Action
-import com.cto3543.exokotlin.web.WebApi
+import com.cto3543.exokotlin.web.CryptoWebApi
 import org.jetbrains.anko.*
 
 
@@ -36,7 +36,7 @@ class DetailsActivity : BaseActivity() {
         }
 
         doAsync {
-            val (summary, error) = WebApi.getSummary(store?.state?.currency, null)
+            val (summary, error) = CryptoWebApi.getSummary(store?.state?.currency, null)
             //send stuff
             uiThread {
                 store?.dispatch(Action.getSummary(summary))

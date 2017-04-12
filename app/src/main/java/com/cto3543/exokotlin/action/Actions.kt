@@ -1,6 +1,7 @@
 package com.cto3543.exokotlin.action
 
 import com.cto3543.exokotlin.block.Block
+import com.cto3543.exokotlin.bolivar.DolarToday
 import com.cto3543.exokotlin.groupmarket.GroupMarkets
 import com.cto3543.exokotlin.groupmarket.Market
 import com.cto3543.exokotlin.model.Summary
@@ -23,4 +24,10 @@ sealed class Action {
 
     class setCurrentBlock(val currentblock: Block?) : Action()
     class setCurrentListBlock(val listBlock: ArrayList<Block>?) : Action()
+
+    // dolarToday
+    class getStateDolar : Action()
+
+    class getApiDolarToday(val dolarToday: DolarToday) : Action()
+
 }

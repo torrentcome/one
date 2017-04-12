@@ -12,6 +12,7 @@ import org.jetbrains.anko.*
 class MenuListUI : AnkoComponent<MenuActivity> {
     lateinit var gotomarket: Button
     lateinit var gotoblock: Button
+    lateinit var gotoBolivar: Button
 
     override fun createView(ui: AnkoContext<MenuActivity>): View {
         return with(ui) {
@@ -40,6 +41,14 @@ class MenuListUI : AnkoComponent<MenuActivity> {
                     topMargin = 48
                 }
 
+                gotoBolivar = button {
+                    text = resources.getString(R.string.gotobolivar)
+                    onClick {
+                        ui.owner.gotoBolivar()
+                    }
+                }.lparams {
+                    topMargin = 48
+                }
             }
         }
     }

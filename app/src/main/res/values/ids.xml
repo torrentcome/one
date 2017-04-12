@@ -32,4 +32,31 @@
   <item name="block_item_data" type="id"/>
   <item name="block_item_hash" type="id"/>
 
+  <!--API bolivar-->
+  <item name="container" type="id"/>
+  <item name="bolivar_date" type="id"/>
+
+  <!--usd-->
+  <item name="bolivar_usd_transferencia" type="id"/>
+  <item name="bolivar_usd_transferencia_cucuta" type="id"/>
+  <item name="bolivar_usd_efectivo" type="id"/>
+  <item name="bolivar_usd_efectivo_real" type="id"/>
+  <item name="bolivar_usd_efectivo_cucuta" type="id"/>
+  <item name="bolivar_usd_promedio" type="id"/>
+  <item name="bolivar_usd_promedio_real" type="id"/>
+  <item name="bolivar_usd_bolivares" type="id"/>
+
+  <!--eur-->
+  <item name="bolivar_eur_transferencia" type="id"/>
+  <item name="bolivar_eur_transferencia_cucuta" type="id"/>
+  <item name="bolivar_eur_efectivo" type="id"/>
+  <item name="bolivar_eur_efectivo_real" type="id"/>
+  <item name="bolivar_eur_efectivo_cucuta" type="id"/>
+  <item name="bolivar_eur_promedio" type="id"/>
+  <item name="bolivar_eur_promedio_real" type="id"/>
+  <item name="bolivar_eur_bolivares" type="id"/>
+
+  <item name="bolivar_misc_petroleo" type="id"/>
+  <item name="bolivar_misc_reservas" type="id"/>
+
 </resources>

@@ -49,11 +49,11 @@ class BlockHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     val hash: TextView = itemView.find(R.id.block_item_hash)
 
     fun bind(block: Block?) {
-        id.text = "id =" + block?.index.toString()
-        previousHash.text = "previousHash =" + block?.previousHash
-        timestamp.text = "timestamp =" + block?.timestamp
-        data.text = "data =" + block?.data
-        hash.text = "hash =" + block?.hash
+        id.text = "Id =" + block?.index.toString()
+        previousHash.text = "PreviousHash =" + block?.previousHash
+        timestamp.text = "Timestamp =" + block?.timestamp
+        data.text = "Data =" + block?.data
+        hash.text = "Hash =" + block?.hash
     }
 
     fun onclick(handle: View.OnClickListener) {

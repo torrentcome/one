@@ -2,6 +2,7 @@ package com.cto3543.exokotlin.reducer
 
 import com.cto3543.exokotlin.action.Action
 import com.cto3543.exokotlin.block.BlockChain
+import com.cto3543.exokotlin.bolivar.DolarToday
 import com.cto3543.exokotlin.model.State
 import redux.api.Reducer
 
@@ -23,5 +24,12 @@ val blockReducer = Reducer { stateblock: BlockChain, action: Any ->
         is Action.setCurrentBlock -> BlockChain(action.currentblock, stateblock.listBlock)
         is Action.setCurrentListBlock -> BlockChain(stateblock.currentBlock, action.listBlock)
         else -> stateblock
+    }
+}
+
+val dolarTodayReducer = Reducer { stateDolarToday: DolarToday, action: Any ->
+    when (action) {
+        is Action.getApiDolarToday -> action.dolarToday
+        else -> stateDolarToday
     }
 }

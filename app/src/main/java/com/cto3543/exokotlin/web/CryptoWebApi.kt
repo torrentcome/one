@@ -9,7 +9,7 @@ import com.google.gson.Gson
 /**
  * Created by cto3543 on 30/03/2017.
  */
-object WebApi {
+object CryptoWebApi {
 
     fun getMarkets(): Pair<GroupMarkets, FuelError?> = callGetRequest("https://api.cryptowat.ch/groupMarkets", GroupMarkets::class.java)
 
