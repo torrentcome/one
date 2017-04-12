@@ -34,6 +34,8 @@
 
   <!--API bolivar-->
   <item name="container" type="id"/>
+  <item name="loader" type="id"/>
+  <item name="error_text" type="id"/>
   <item name="bolivar_date" type="id"/>
 
   <!--usd-->
