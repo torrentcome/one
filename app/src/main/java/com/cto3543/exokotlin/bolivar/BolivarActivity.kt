@@ -29,7 +29,7 @@ class BolivarActivity : BaseActivity() {
 
             slidingSquareLoader {
                 id = R.id.loader
-            }.lparams(width = wrapContent, height = wrapContent){
+            }.lparams(width = wrapContent, height = wrapContent) {
                 centerInParent()
             }
 
@@ -50,7 +50,7 @@ class BolivarActivity : BaseActivity() {
                     padding = dip(24)
 
                     verticalLayout {
-                        lparams(width = matchParent, height = matchParent)
+                        lparams(width = matchParent, height = wrapContent)
 
                         textView {
                             id = R.id.bolivar_date
@@ -65,7 +65,7 @@ class BolivarActivity : BaseActivity() {
 
                             verticalLayout {
                                 padding = dip(10)
-                                lparams(width = matchParent, height = matchParent)
+                                lparams(width = wrapContent, height = wrapContent)
 
                                 linearLayout {
                                     imageView {
@@ -80,50 +80,10 @@ class BolivarActivity : BaseActivity() {
                                         gravity = Gravity.CENTER
                                     }
                                 }
-                                typeWrite {
-                                    id = R.id.bolivar_usd_transferencia_cucuta
-                                    textColor = resources.getColor(R.color.white)
-                                }
-                                typeWrite {
-                                    id = R.id.bolivar_usd_efectivo
-                                    textColor = resources.getColor(R.color.white)
-                                }
-                                typeWrite {
-                                    id = R.id.bolivar_usd_efectivo_real
-                                    textColor = resources.getColor(R.color.white)
-                                }
-                                typeWrite {
-                                    id = R.id.bolivar_usd_efectivo_cucuta
-                                    textColor = resources.getColor(R.color.white)
-                                }
-                                typeWrite {
-                                    id = R.id.bolivar_usd_promedio
-                                    textColor = resources.getColor(R.color.white)
-                                }
-                                typeWrite {
-                                    id = R.id.bolivar_usd_promedio_real
-                                    textColor = resources.getColor(R.color.white)
-                                }
-                                typeWrite {
-                                    id = R.id.bolivar_usd_bolivares
-                                    textColor = resources.getColor(R.color.white)
-                                }
-                            }
-                        }
 
-                        cardView {
-                            backgroundColor = resources.getColor(R.color.blue_light)
-                            lparams(width = matchParent, height = wrapContent) {
-                                margin = dip(10)
-                            }
-
-
-                            verticalLayout {
-                                padding = dip(10)
-                                lparams(width = matchParent, height = matchParent)
                                 linearLayout {
                                     imageView {
-                                        lparams(width = wrapContent, height = matchParent)
+                                        lparams(width = wrapContent, height = wrapContent)
                                         imageResource = R.drawable.ic_euro_symbol_black_24dp
                                         scaleType = ImageView.ScaleType.CENTER
                                     }
@@ -134,44 +94,61 @@ class BolivarActivity : BaseActivity() {
                                         gravity = Gravity.CENTER
                                     }
                                 }
-                                typeWrite {
-                                    id = R.id.bolivar_eur_transferencia_cucuta
-                                    textColor = resources.getColor(R.color.white)
-                                }
-                                typeWrite {
-                                    id = R.id.bolivar_eur_efectivo
-                                    textColor = resources.getColor(R.color.white)
-                                }
-                                typeWrite {
-                                    id = R.id.bolivar_eur_efectivo_real
-                                    textColor = resources.getColor(R.color.white)
-                                }
-                                typeWrite {
-                                    id = R.id.bolivar_eur_efectivo_cucuta
-                                    textColor = resources.getColor(R.color.white)
-                                }
-                                typeWrite {
-                                    id = R.id.bolivar_eur_promedio
-                                    textColor = resources.getColor(R.color.white)
-                                }
-                                typeWrite {
-                                    id = R.id.bolivar_eur_promedio_real
-                                    textColor = resources.getColor(R.color.white)
-                                }
-                                typeWrite {
-                                    id = R.id.bolivar_eur_bolivares
-                                    textColor = resources.getColor(R.color.white)
-                                }
                             }
                         }
 
 
+                        textView {
+                            text = "Details"
+                            textColor = resources.getColor(R.color.white)
+                        }
+
                         cardView {
-                            backgroundColor = resources.getColor(R.color.red_light)
                             lparams(width = matchParent, height = wrapContent) {
                                 margin = dip(10)
                             }
+                            backgroundColor = resources.getColor(R.color.blue_light)
 
+                            verticalLayout {
+                                padding = dip(10)
+                                lparams(width = wrapContent, height = wrapContent)
+
+                                typeWrite {
+                                    textColor = resources.getColor(R.color.colorPrimaryDark)
+                                    id = R.id.bolivar_usd_transferencia_cucuta
+                                }
+                                typeWrite {
+                                    textColor = resources.getColor(R.color.colorPrimaryDark)
+                                    id = R.id.bolivar_usd_efectivo
+                                }
+                                typeWrite {
+                                    textColor = resources.getColor(R.color.colorPrimaryDark)
+                                    id = R.id.bolivar_usd_efectivo_real
+                                }
+                                typeWrite {
+                                    textColor = resources.getColor(R.color.colorPrimaryDark)
+                                    id = R.id.bolivar_usd_efectivo_cucuta
+                                }
+                                typeWrite {
+                                    textColor = resources.getColor(R.color.colorPrimaryDark)
+                                    id = R.id.bolivar_usd_promedio
+                                }
+                                typeWrite {
+                                    textColor = resources.getColor(R.color.colorPrimaryDark)
+                                    id = R.id.bolivar_usd_promedio_real
+                                }
+                                typeWrite {
+                                    textColor = resources.getColor(R.color.colorPrimaryDark)
+                                    id = R.id.bolivar_usd_bolivares
+                                }
+                            }
+                        }
+
+                        cardView {
+                            backgroundColor = resources.getColor(R.color.blue_light)
+                            lparams(width = matchParent, height = wrapContent) {
+                                margin = dip(10)
+                            }
 
                             verticalLayout {
                                 padding = dip(10)
@@ -185,14 +162,14 @@ class BolivarActivity : BaseActivity() {
                                     }
                                     typeWrite {
                                         id = R.id.bolivar_misc_petroleo
-                                        textColor = resources.getColor(R.color.white)
+                                        textColor = resources.getColor(R.color.blue_dark)
                                         textSize = 26f
                                         gravity = Gravity.CENTER
                                     }
                                 }
                                 typeWrite {
                                     id = R.id.bolivar_misc_reservas
-                                    textColor = resources.getColor(R.color.white)
+                                    textColor = resources.getColor(R.color.blue_dark)
                                 }
                             }
                         }
@@ -236,22 +213,23 @@ class BolivarActivity : BaseActivity() {
                 (findViewById(R.id.bolivar_date) as TextView).setText("Fecha " + storeDolarToday?.state?._timestamp?.fecha.toString())
 
                 (findViewById(R.id.bolivar_usd_transferencia) as TypeWrite).animateText(storeDolarToday?.state?.USD?.transferencia.toString())
-                (findViewById(R.id.bolivar_usd_transferencia_cucuta) as TypeWrite).animateText("Transferencia_cucuta " + storeDolarToday?.state?.USD?.transfer_cucuta.toString())
-                (findViewById(R.id.bolivar_usd_efectivo) as TypeWrite).animateText("Efectivo " + storeDolarToday?.state?.USD?.efectivo.toString())
-                (findViewById(R.id.bolivar_usd_efectivo_real) as TypeWrite).animateText("Efectivo_real " + storeDolarToday?.state?.USD?.efectivo_real.toString())
-                (findViewById(R.id.bolivar_usd_efectivo_cucuta) as TypeWrite).animateText("Efectivo_cucuta " + storeDolarToday?.state?.USD?.efectivo_cucuta.toString())
-                (findViewById(R.id.bolivar_usd_promedio) as TypeWrite).animateText("Promedio " + storeDolarToday?.state?.USD?.promedio.toString())
-                (findViewById(R.id.bolivar_usd_promedio_real) as TypeWrite).animateText("Promedio_real " + storeDolarToday?.state?.USD?.promedio_real.toString())
-                (findViewById(R.id.bolivar_usd_bolivares) as TypeWrite).animateText("Bolivares " + storeDolarToday?.state?.USD?.dolartoday.toString())
-
                 (findViewById(R.id.bolivar_eur_transferencia) as TypeWrite).animateText(storeDolarToday?.state?.EUR?.transferencia.toString())
-                (findViewById(R.id.bolivar_eur_transferencia_cucuta) as TypeWrite).animateText("Transferencia_cucuta " + storeDolarToday?.state?.EUR?.transfer_cucuta.toString())
-                (findViewById(R.id.bolivar_eur_efectivo) as TypeWrite).animateText("Efectivo " + storeDolarToday?.state?.EUR?.efectivo.toString())
-                (findViewById(R.id.bolivar_eur_efectivo_real) as TypeWrite).animateText("Efectivo_real " + storeDolarToday?.state?.EUR?.efectivo_real.toString())
-                (findViewById(R.id.bolivar_eur_efectivo_cucuta) as TypeWrite).animateText("Efectivo_cucuta " + storeDolarToday?.state?.EUR?.efectivo_cucuta.toString())
-                (findViewById(R.id.bolivar_eur_promedio) as TypeWrite).animateText("Promedio " + storeDolarToday?.state?.EUR?.promedio.toString())
-                (findViewById(R.id.bolivar_eur_promedio_real) as TypeWrite).animateText("Promedio_real " + storeDolarToday?.state?.EUR?.promedio_real.toString())
-                (findViewById(R.id.bolivar_eur_bolivares) as TypeWrite).animateText("Bolivares " + storeDolarToday?.state?.EUR?.dolartoday.toString())
+
+                (findViewById(R.id.bolivar_usd_transferencia_cucuta) as TypeWrite).animateText("Transferencia_cucuta " + storeDolarToday?.state?.USD?.transfer_cucuta.toString() + " / " + storeDolarToday?.state?.EUR?.transfer_cucuta.toString())
+                (findViewById(R.id.bolivar_usd_efectivo) as TypeWrite).animateText("Efectivo " + storeDolarToday?.state?.USD?.efectivo.toString() + " / " + storeDolarToday?.state?.EUR?.efectivo.toString())
+                (findViewById(R.id.bolivar_usd_efectivo_real) as TypeWrite).animateText("Efectivo_real " + storeDolarToday?.state?.USD?.efectivo_real.toString() + " / " + storeDolarToday?.state?.EUR?.efectivo_real.toString())
+                (findViewById(R.id.bolivar_usd_efectivo_cucuta) as TypeWrite).animateText("Efectivo_cucuta " + storeDolarToday?.state?.USD?.efectivo_cucuta.toString() + " / " + storeDolarToday?.state?.EUR?.efectivo_cucuta.toString())
+                (findViewById(R.id.bolivar_usd_promedio) as TypeWrite).animateText("Promedio " + storeDolarToday?.state?.USD?.promedio.toString() + " / " + storeDolarToday?.state?.EUR?.promedio.toString())
+                (findViewById(R.id.bolivar_usd_promedio_real) as TypeWrite).animateText("Promedio_real " + storeDolarToday?.state?.USD?.promedio_real.toString() + " / " + storeDolarToday?.state?.EUR?.promedio_real.toString())
+                (findViewById(R.id.bolivar_usd_bolivares) as TypeWrite).animateText("Bolivares " + storeDolarToday?.state?.USD?.dolartoday.toString() + " / " + storeDolarToday?.state?.EUR?.dolartoday.toString())
+
+//                (findViewById(R.id.bolivar_eur_transferencia_cucuta) as TypeWrite).animateText("Transferencia_cucuta " + storeDolarToday?.state?.EUR?.transfer_cucuta.toString())
+//                (findViewById(R.id.bolivar_eur_efectivo) as TypeWrite).animateText("Efectivo " + storeDolarToday?.state?.EUR?.efectivo.toString())
+//                (findViewById(R.id.bolivar_eur_efectivo_real) as TypeWrite).animateText("Efectivo_real " + storeDolarToday?.state?.EUR?.efectivo_real.toString())
+//                (findViewById(R.id.bolivar_eur_efectivo_cucuta) as TypeWrite).animateText("Efectivo_cucuta " + storeDolarToday?.state?.EUR?.efectivo_cucuta.toString())
+//                (findViewById(R.id.bolivar_eur_promedio) as TypeWrite).animateText("Promedio " + storeDolarToday?.state?.EUR?.promedio.toString())
+//                (findViewById(R.id.bolivar_eur_promedio_real) as TypeWrite).animateText("Promedio_real " + storeDolarToday?.state?.EUR?.promedio_real.toString())
+//                (findViewById(R.id.bolivar_eur_bolivares) as TypeWrite).animateText("Bolivares " + storeDolarToday?.state?.EUR?.dolartoday.toString())
 
                 (findViewById(R.id.bolivar_misc_petroleo) as TypeWrite).animateText(storeDolarToday?.state?.MISC?.petroleo.toString())
                 (findViewById(R.id.bolivar_misc_reservas) as TypeWrite).animateText("Reservas " + storeDolarToday?.state?.MISC?.reservas.toString() + "MM")
