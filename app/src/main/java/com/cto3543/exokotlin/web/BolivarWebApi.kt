@@ -10,4 +10,6 @@ object BolivarWebApi{
 
     fun getDolartoday():Pair<DolarToday, FuelError?> = CryptoWebApi.callGetRequest("https://s3.amazonaws.com/dolartoday/data.json", DolarToday::class.java)
 
+    fun getRomarcaEnvios():Pair<String, FuelError?> = CryptoWebApi.callGetRequest("https://www.romarcaenvios.com/", String::class.java)
+
 }
