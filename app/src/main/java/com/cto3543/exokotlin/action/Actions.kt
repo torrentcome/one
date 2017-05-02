@@ -29,5 +29,6 @@ sealed class Action {
     class getStateDolar : Action()
 
     class getApiDolarToday(val dolarToday: DolarToday) : Action()
+    class getRomarca(val romarca: String) : Action()
 
 }

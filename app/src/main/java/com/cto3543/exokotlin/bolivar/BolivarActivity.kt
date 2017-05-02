@@ -184,7 +184,7 @@ class BolivarActivity : BaseActivity() {
             println("getApiDolarToday = " + dolarToday)
             println("error = " + error)
 
-            val (htmlRomarca, errorRomarca) = BolivarWebApi.getDolartoday()
+            val (htmlRomarca, errorRomarca) = BolivarWebApi.getRomarcaEnvios()
             println("getApiDolarToday = " + dolarToday)
             println("error = " + error)
 
@@ -197,6 +197,7 @@ class BolivarActivity : BaseActivity() {
                     (findViewById(R.id.error_text) as TypeWrite).setText("Sorry :" + error.toString())
                 } else {
                     storeDolarToday?.dispatch(Action.getApiDolarToday(dolarToday))
+                    storeDolarToday?.dispatch(Action.getRomarca(htmlRomarca))
                 }
             }
         }
@@ -214,26 +215,29 @@ class BolivarActivity : BaseActivity() {
 
         // receive stuff
         subscriber = storeDolarToday?.subscribe {
-            if (storeDolarToday?.state != null) {
-
+            val dolarToday = storeDolarToday?.state?.dolarToday
+            if (dolarToday != null) {
                 container.visibility = VISIBLE
                 loader.visibility = GONE
 
-                (findViewById(R.id.bolivar_date) as TextView).setText("Fecha " + storeDolarToday?.state?._timestamp?.fecha.toString())
+                (findViewById(R.id.bolivar_date) as TextView).setText("Fecha " + dolarToday?._timestamp?.fecha.toString())
 
-                (findViewById(R.id.bolivar_usd_transferencia) as TypeWrite).animateText(storeDolarToday?.state?.USD?.transferencia.toString())
-                (findViewById(R.id.bolivar_eur_transferencia) as TypeWrite).animateText(storeDolarToday?.state?.EUR?.transferencia.toString())
+                (findViewById(R.id.bolivar_usd_transferencia) as TypeWrite).animateText(dolarToday?.USD?.transferencia.toString())
+                (findViewById(R.id.bolivar_eur_transferencia) as TypeWrite).animateText(dolarToday?.EUR?.transferencia.toString())
 
-                (findViewById(R.id.bolivar_usd_transferencia_cucuta) as TypeWrite).animateText("Transferencia_cucuta " + storeDolarToday?.state?.USD?.transfer_cucuta.toString() + " / " + storeDolarToday?.state?.EUR?.transfer_cucuta.toString())
-                (findViewById(R.id.bolivar_usd_efectivo) as TypeWrite).animateText("Efectivo             " + storeDolarToday?.state?.USD?.efectivo.toString() + " / " + storeDolarToday?.state?.EUR?.efectivo.toString())
-                (findViewById(R.id.bolivar_usd_efectivo_real) as TypeWrite).animateText("Efectivo_real        " + storeDolarToday?.state?.USD?.efectivo_real.toString() + " / " + storeDolarToday?.state?.EUR?.efectivo_real.toString())
-                (findViewById(R.id.bolivar_usd_efectivo_cucuta) as TypeWrite).animateText("Efectivo_cucuta      " + storeDolarToday?.state?.USD?.efectivo_cucuta.toString() + " / " + storeDolarToday?.state?.EUR?.efectivo_cucuta.toString())
-                (findViewById(R.id.bolivar_usd_promedio) as TypeWrite).animateText("Promedio             " + storeDolarToday?.state?.USD?.promedio.toString() + " / " + storeDolarToday?.state?.EUR?.promedio.toString())
-                (findViewById(R.id.bolivar_usd_promedio_real) as TypeWrite).animateText("Promedio_real        " + storeDolarToday?.state?.USD?.promedio_real.toString() + " / " + storeDolarToday?.state?.EUR?.promedio_real.toString())
-                (findViewById(R.id.bolivar_usd_bolivares) as TypeWrite).animateText("Bolivares            " + storeDolarToday?.state?.USD?.dolartoday.toString() + " / " + storeDolarToday?.state?.EUR?.dolartoday.toString())
+                (findViewById(R.id.bolivar_usd_transferencia_cucuta) as TypeWrite).animateText("Transferencia_cucuta " + dolarToday?.USD?.transfer_cucuta.toString() + " / " + dolarToday?.EUR?.transfer_cucuta.toString())
+                (findViewById(R.id.bolivar_usd_efectivo) as TypeWrite).animateText("Efectivo             " + dolarToday?.USD?.efectivo.toString() + " / " + dolarToday?.EUR?.efectivo.toString())
+                (findViewById(R.id.bolivar_usd_efectivo_real) as TypeWrite).animateText("Efectivo_real        " + dolarToday?.USD?.efectivo_real.toString() + " / " + dolarToday?.EUR?.efectivo_real.toString())
+                (findViewById(R.id.bolivar_usd_efectivo_cucuta) as TypeWrite).animateText("Efectivo_cucuta      " + dolarToday?.USD?.efectivo_cucuta.toString() + " / " + dolarToday?.EUR?.efectivo_cucuta.toString())
+                (findViewById(R.id.bolivar_usd_promedio) as TypeWrite).animateText("Promedio             " + dolarToday?.USD?.promedio.toString() + " / " + dolarToday?.EUR?.promedio.toString())
+                (findViewById(R.id.bolivar_usd_promedio_real) as TypeWrite).animateText("Promedio_real        " + dolarToday?.USD?.promedio_real.toString() + " / " + dolarToday?.EUR?.promedio_real.toString())
+                (findViewById(R.id.bolivar_usd_bolivares) as TypeWrite).animateText("Bolivares            " + dolarToday?.USD?.dolartoday.toString() + " / " + dolarToday?.EUR?.dolartoday.toString())
 
-                (findViewById(R.id.bolivar_misc_petroleo) as TypeWrite).animateText(storeDolarToday?.state?.MISC?.petroleo.toString())
-                (findViewById(R.id.bolivar_misc_reservas) as TypeWrite).animateText("Reservas " + storeDolarToday?.state?.MISC?.reservas.toString() + "MM")
+                (findViewById(R.id.bolivar_misc_petroleo) as TypeWrite).animateText(dolarToday?.MISC?.petroleo.toString())
+                (findViewById(R.id.bolivar_misc_reservas) as TypeWrite).animateText("Reservas " + dolarToday?.MISC?.reservas.toString() + "MM")
+            }
+            val romarca = storeDolarToday?.state?.romarca
+            if(romarca != null){
             }
         }
     }
